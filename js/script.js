@@ -51,7 +51,7 @@ form.addEventListener('submit', (e) => {
 
     // INCREMENENT THE NUMBER OF EMPLOYEES IN THE TABLE
     employeeCount++
-    empCount.textContent = `${employeeCount}`
+    empCount.textContent = `(${employeeCount})`
 
 })
 
@@ -61,7 +61,7 @@ deleteButton.addEventListener('click', (e) => {
     // Confirm the deletion
     if (confirm('Are you sure to delete this employee?')) {
         // Get the row to delete (parentNode of the button's cell)
-        const rowToDelete = e.target.closet('tr')
+        const rowToDelete = e.target.closest('tr')
         rowIndex = rowToDelete.rowIndex
 
         // Delete the row
@@ -69,6 +69,6 @@ deleteButton.addEventListener('click', (e) => {
 
         // Decrement employee count and update the display
         employeeCount--;
-        empCount.textContent = `${employeeCount}`
+        empCount.textContent = `(${employeeCount})`
     }
 })

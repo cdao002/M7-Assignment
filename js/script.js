@@ -21,8 +21,7 @@ form.addEventListener('submit', (e) => {
 
     // INSERT A NEW ROW AT THE END OF THE EMPLOYEES TABLE
     let row = employeeTable.insertRow()
-    // row.id = id
-
+   
     // INSERT A CELL FOR EACH ITEM WITHIN THE NEW ROW
     let cellID = row.insertCell()
     let cellName = row.insertCell()
@@ -41,7 +40,6 @@ form.addEventListener('submit', (e) => {
     // CREATE THE DELETE BUTTON
     const deleteButton = document.createElement('button')
     deleteButton.textContent = 'Delete'
-    // deleteButton.id = id
     deleteButton.classList.add('btn', 'btn-danger')
     cellDelete.appendChild(deleteButton)
 

@@ -21,6 +21,7 @@ form.addEventListener('submit', (e) => {
 
     // INSERT A NEW ROW AT THE END OF THE EMPLOYEES TABLE
     let row = employeeTable.insertRow()
+    // row.id = id
 
     // INSERT A CELL FOR EACH ITEM WITHIN THE NEW ROW
     let cellID = row.insertCell()
@@ -40,6 +41,7 @@ form.addEventListener('submit', (e) => {
     // CREATE THE DELETE BUTTON
     const deleteButton = document.createElement('button')
     deleteButton.textContent = 'Delete'
+    // deleteButton.id = id
     deleteButton.classList.add('btn', 'btn-danger')
     cellDelete.appendChild(deleteButton)
 
@@ -53,22 +55,24 @@ form.addEventListener('submit', (e) => {
     employeeCount++
     empCount.textContent = `(${employeeCount})`
 
-})
 
-// DELETE EMPLOYEE
 
-deleteButton.addEventListener('click', (e) => {
-    // Confirm the deletion
-    if (confirm('Are you sure to delete this employee?')) {
-        // Get the row to delete (parentNode of the button's cell)
-        const rowToDelete = e.target.closest('tr')
-        rowIndex = rowToDelete.rowIndex
+    // DELETE EMPLOYEE
 
-        // Delete the row
-        employeeTable.deleteRow(rowIndex);
+    deleteButton.addEventListener('click', (e) => {
+        // Confirm the deletion
+        if (confirm('Are you sure to delete this employee?')) {
+            // Get the row to delete (parentNode of the button's cell)
+            let rowToDelete = e.target.parentNode.parentNode
+            rowIndex = rowToDelete.rowIndex
 
-        // Decrement employee count and update the display
-        employeeCount--;
-        empCount.textContent = `(${employeeCount})`
-    }
+            // Delete the row
+            employeeTable.deleteRow(rowIndex);
+
+            // Decrement employee count and update the display
+            employeeCount--;
+            empCount.textContent = `(${employeeCount})`
+        }
+    })
+
 })
